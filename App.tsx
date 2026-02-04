@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import WorkWithUs from './pages/WorkWithUs';
 import ReservationModal from './components/ReservationModal';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import ScrollToTop from './components/ScrollToTop';
 
 export type Language = 'it' | 'en' | 'fr' | 'es' | 'de' | 'zh' | 'ar';
 
@@ -26,6 +27,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         {/* Removed test message */}
         <Navbar 
