@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -16,7 +16,14 @@ export type Language = 'it' | 'en' | 'fr' | 'es' | 'de' | 'zh' | 'ar';
 
 const App: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [lang, setLang] = useState<Language>('it');
+  const [lang, setLang] = useState<Language>(() => {
+    const stored = localStorage.getItem('lang');
+    return (stored as Language) || 'it';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('lang', lang);
+  }, [lang]);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
