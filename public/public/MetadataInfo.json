@@ -1,0 +1,44 @@
+{
+  "name": "Trattoria del Pesce giallo",
+  "address": "Via Annunziata 19, 82100 Benevento (BN)",
+
+  "phone": "+39 123 456789, +49 1225445887",
+  "CallPhone": "+39 123 5555",
+  "Whatsapp": "+39 123 333333",
+  "email": "info@trattoriadelpescatore.it",
+
+  "OpenTime": {
+    "it": "Lun: Chiuso , Mar-Ven: 12:30-15:30 / 19:30-22:30 , Sab: 12:30-15:30 / 19:30-23:00 , Dom: 12:30-15:30, Chiuso a cena",
+    "en": "Mon: Closed , Tue-Fri: 12:30-15:30 / 19:30-22:30 , Sat: 12:30-15:30 / 19:30-23:00 , Sun: 12:30-15:30, Closed for dinner",
+    "fr": "Lun: Fermé , Mar-Ven: 12h30-15h30 / 19h30-22h30 , Sam: 12h30-15h30 / 19h30-23h00 , Dim: 12h30-15h30, Fermé le soir",
+    "es": "Lun: Cerrado , Mar-Vie: 12:30-15:30 / 19:30-22:30 , Sáb: 12:30-15:30 / 19:30-23:00 , Dom: 12:30-15:30, Cerrado por la noche",
+    "de": "Mo: Geschlossen , Di-Fr: 12:30-15:30 / 19:30-22:30 , Sa: 12:30-15:30 / 19:30-23:00 , So: 12:30-15:30, Abends geschlossen",
+    "zh": "周一：休息 , 周二至周五：12:30-15:30 / 19:30-22:30 , 周六：12:30-15:30 / 19:30-23:00 , 周日：12:30-15:30, 晚餐休息",
+    "ar": "الاثنين: مغلق , الثلاثاء - الجمعة: 12:30-15:30 / 19:30-22:30 , السبت: 12:30-15:30 / 19:30-23:00 , الأحد: 12:30-15:30, مغلق مساءً"
+  },
+
+  "DescrizioneRistorante": {
+    "it": "Dalla tea alla tavola moderna. Un'esperienza culinaria unica che celebra la freschezza e l'armonia degli ingredienti del mare.",
+    "en": "From Mediterranean tradition to the modern table. A unique culinary experience that celebrates the freshness and harmony of sea ingredients.",
+    "fr": "De la tradition méditerranéenne à la table moderne. Une expérience culinaire unique qui célèbre la fraîcheur et l'harmonie des ingrédients de la mer.",
+    "es": "De la tradición mediterránea a la mesa moderna. Una experiencia culinaria única que celebra la frescura y la armonía de los ingredientes del mar.",
+    "de": "Von der mediterranen Tradition bis zum modernen Tisch. Ein einzigartiges kulinarisches Erlebnis, das die Frische und Harmonie der Meereszutaten feiert.",
+    "zh": "从地中海传统到现代餐桌。独特的美食体验，庆祝海洋食材的新鲜与和谐。",
+    "ar": "من التقليد المتوسطي إلى المائدة الحديثة. تجربة طهي فريدة تحتفي بنضارة وانسجام مكونات البحر."
+  },
+
+  "social": {
+    "facebook": "https://facebook.com/trattoriadelpescatore",
+    "instagram": "https://instagram.com/trattoriadelpescatore",
+    "tiktok": "https://tiktok.com/@trattoriadelpescatore",
+    "twitter": "https://twitter.com/trattoriadelpescatore",
+    "whatsapp": "+39 123 333333"
+  },
+
+  "_comment": "GoogleEmbeddedMaps : GoogleMaps -> Condividi -> Incorpora una mappa -> Copia HTML -> Prendi solo l'URL dopo 'src=' e tra virgolette",
+  "_comment": "GoogleEmbeddedMaps : LINK",
+
+  "GoogleMaps": "https://maps.app.goo.gl/1g47kDwTJ4yiTqJs8",
+  "GoogleEmbeddedMaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.370964073019!2d14.78207331535413!3d41.13063497929016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1339e5e2e2e2e2e3%3A0x123456789abcdef!2sVia%20Annunziata%2019%2C%2082100%20Benevento%20BN!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit",
+  "_comment": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d761945.3011554788!2d13.193072792950632!3d41.75613628631581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1330b55e48b6c433%3A0x17fb2b9bd50beaba!2sRistorante%20Al%20Castello%20San%20Martino!5e0!3m2!1sit!2sde!4v1770194232978!5m2!1sit!2sde"
+}
