@@ -143,15 +143,15 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
                 </span>
               </div>
               {/* Indirizzo con link a Google Maps */}
-              <a href={meta.GoogleMaps} target="_blank" rel="noopener noreferrer" className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 bg-restaurant-accent/10 text-restaurant-accent rounded-full flex items-center justify-center shrink-0 group-hover:bg-restaurant-accent/20">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold">{t.address}</h4>
-                  <p className="text-restaurant-subtext underline group-hover:text-restaurant-accent transition-colors">{meta.address}</p>
-                </div>
-              </a>
+                <a href={meta.GoogleMaps} target="_blank" rel="noopener noreferrer" className="flex items-start space-x-4 group">
+                  <div className="w-12 h-12 bg-restaurant-accent/10 text-restaurant-accent rounded-full flex items-center justify-center shrink-0 group-hover:bg-restaurant-accent/20">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold">{t.address}</h4>
+                    <p className="text-restaurant-subtext group-hover:text-restaurant-accent transition-colors">{meta.address}</p>
+                  </div>
+                </a>
               {/* Telefono (solo visualizzazione) */}
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-restaurant-accent/10 text-restaurant-accent rounded-full flex items-center justify-center shrink-0">
@@ -168,8 +168,8 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold">{t.phone} (Click)</h4>
-                  <p className="text-restaurant-subtext underline group-hover:text-restaurant-accent transition-colors">{meta.CallPhone}</p>
+                  <h4 className="text-white font-bold">{t.phone}</h4>
+                  <p className="text-restaurant-subtext group-hover:text-restaurant-accent transition-colors">{meta.CallPhone}</p>
                 </div>
               </a>
               {/* Whatsapp (click per aprire chat) */}
@@ -179,7 +179,7 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold">WhatsApp</h4>
-                  <p className="text-restaurant-subtext underline group-hover:text-restaurant-accent transition-colors">{meta.Whatsapp}</p>
+                  <p className="text-restaurant-subtext group-hover:text-restaurant-accent transition-colors">{meta.Whatsapp}</p>
                 </div>
               </a>
               {/* Email (click per inviare email) */}
@@ -189,11 +189,11 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold">{t.email}</h4>
-                  <p className="text-restaurant-subtext underline group-hover:text-restaurant-accent transition-colors">{meta.email}</p>
+                  <p className="text-restaurant-subtext group-hover:text-restaurant-accent transition-colors">{meta.email}</p>
                 </div>
               </a>
               {/* Social media dinamici */}
-              <div className="flex flex-wrap gap-4 mt-4">
+              <div className="flex flex-col gap-4 mt-4">
                 {meta.social && Object.entries(meta.social).map(([key, value]) => {
                   if (!socialIcons[key]) return null;
                   // Mostra solo se è un link valido
@@ -207,7 +207,6 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
                           {socialIcons[key]}
                         </span>
                         <span className="text-white font-bold">{username}</span>
-                        <span className="text-restaurant-subtext">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
                       </a>
                     );
                   }
@@ -219,20 +218,86 @@ const Contact: React.FC<ContactProps> = ({ lang }) => {
 
           {/* Form Side */}
           <div className="bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-restaurant-subtext uppercase tracking-wider">{t.formName}</label>
-                  <input className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-restaurant-accent outline-none" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-restaurant-subtext uppercase tracking-wider">Email</label>
-                  <input className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-restaurant-accent outline-none" />
+            <form className="space-y-8">
+              {/* Nome */}
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-restaurant-subtext uppercase tracking-wider">{t.formName}</label>
+                <input
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-restaurant-accent outline-none"
+                  name="name"
+                  autoComplete="name"
+                  placeholder={
+                    lang === 'it' ? 'Mario Rossi' :
+                    lang === 'en' ? 'John Smith' :
+                    lang === 'fr' ? 'Jean Dupont' :
+                    lang === 'es' ? 'Juan Pérez' :
+                    lang === 'de' ? 'Max Mustermann' :
+                    lang === 'zh' ? '张伟' :
+                    lang === 'ar' ? 'محمد أحمد' :
+                    'Mario Rossi'
+                  }
+                />
+              </div>
+              {/* Telefono con prefisso */}
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-restaurant-subtext uppercase tracking-wider">{t.phone}</label>
+                <div className="flex gap-2">
+                  <input
+                    className="w-20 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-bold focus:ring-2 focus:ring-restaurant-accent outline-none text-center"
+                    name="prefix"
+                    defaultValue={
+                      lang === 'it' ? '+39' :
+                      lang === 'de' ? '+49' :
+                      lang === 'fr' ? '+33' :
+                      lang === 'es' ? '+34' :
+                      lang === 'en' ? '+44' :
+                      lang === 'zh' ? '+86' :
+                      lang === 'ar' ? '+20' :
+                      '+39'
+                    }
+                    maxLength={5}
+                    placeholder={
+                      lang === 'it' ? '+39' :
+                      lang === 'de' ? '+49' :
+                      lang === 'fr' ? '+33' :
+                      lang === 'es' ? '+34' :
+                      lang === 'en' ? '+44' :
+                      lang === 'zh' ? '+86' :
+                      lang === 'ar' ? '+20' :
+                      '+39'
+                    }
+                  />
+                  <input
+                    className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-bold focus:ring-2 focus:ring-restaurant-accent outline-none"
+                    name="phone"
+                    autoComplete="tel"
+                    placeholder={
+                      lang === 'it' ? '333 1234567' :
+                      lang === 'en' ? '7123 456789' :
+                      lang === 'fr' ? '612 345678' :
+                      lang === 'es' ? '612 345678' :
+                      lang === 'de' ? '1512 3456789' :
+                      lang === 'zh' ? '138 00138000' :
+                      lang === 'ar' ? '10 1234 5678' :
+                      '333 1234567'
+                    }
+                  />
                 </div>
               </div>
+              {/* Email opzionale */}
               <div className="space-y-2">
-                <label className="text-xs font-bold text-restaurant-subtext uppercase tracking-wider">{t.formMsg}</label>
-                <textarea rows={6} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-restaurant-accent outline-none resize-none"></textarea>
+                <label className="text-xs font-bold text-restaurant-subtext uppercase tracking-wider">{t.email} <span className="font-normal">({lang === 'it' ? 'opzionale' : lang === 'en' ? 'optional' : lang === 'fr' ? 'optionnel' : lang === 'es' ? 'opcional' : lang === 'de' ? 'optional' : lang === 'zh' ? '可选' : lang === 'ar' ? 'اختياري' : 'opzionale'})</span></label>
+                <input className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-restaurant-accent outline-none" name="email" autoComplete="email" />
+              </div>
+              {/* Messaggio con limite 250 caratteri */}
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-restaurant-subtext uppercase tracking-wider">{t.formMsg} <span className="text-xs text-restaurant-subtext">(max 250)</span></label>
+                <textarea
+                  rows={6}
+                  maxLength={250}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-restaurant-accent outline-none resize-none"
+                  name="message"
+                ></textarea>
               </div>
               <button className="w-full bg-restaurant-accent hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-all">{t.formBtn}</button>
             </form>
