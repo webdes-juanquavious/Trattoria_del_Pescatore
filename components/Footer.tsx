@@ -139,10 +139,10 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
                     <a href={meta.social.twitter} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-restaurant-accent transition-colors"><Twitter size={20} /></a>
                   )}
                   {meta.social?.tiktok && (
-                    <a href={meta.social.tiktok} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-restaurant-accent transition-colors"><FaTiktok size={20} style={{ verticalAlign: 'middle' }} /></a>
+                    <a href={meta.social.tiktok} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-restaurant-accent transition-colors"><FaTiktok size={20} className="align-middle" /></a>
                   )}
                   {meta.social?.whatsapp && (
-                    <a href={`https://wa.me/${meta.social.whatsapp.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-restaurant-accent transition-colors"><FaWhatsapp size={20} style={{ verticalAlign: 'middle' }} /></a>
+                    <a href={`https://wa.me/${meta.social.whatsapp.replace(/[^\d]/g, '')}`} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 rounded-full hover:bg-restaurant-accent transition-colors"><FaWhatsapp size={20} className="align-middle" /></a>
                   )}
             </div>
           </div>
@@ -196,7 +196,7 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
               {/* Phone as WhatsApp links */}
               {meta.Whatsapp && (
                 <li className="flex items-center space-x-3">
-                  <FaWhatsapp size={20} style={{ color: '#22c55e', flexShrink: 0, verticalAlign: 'middle' }} />
+                  <FaWhatsapp size={20} className="text-green-500 flex-shrink-0 align-middle" />
                   <span>{meta.Whatsapp.split(',').map((num: string, i: number) => {
                     const wa = num.replace(/[^\d]/g, '');
                     return (
@@ -258,7 +258,13 @@ const Footer: React.FC<FooterProps> = ({ lang }) => {
             <ul className="space-y-4 text-restaurant-subtext">
               <li><Link to="/menu" className="hover:text-restaurant-accent transition-colors">{t.menu}</Link></li>
               <li><Link to="/prenota" className="hover:text-restaurant-accent transition-colors">{t.book}</Link></li>
-              <li><Link to="/contatto" className="hover:text-restaurant-accent transition-colors">{t.location}</Link></li>
+              {meta.GoogleMaps ? (
+                <li>
+                  <a href={meta.GoogleMaps} target="_blank" rel="noopener noreferrer" className="hover:text-restaurant-accent transition-colors cursor-pointer">{t.location}</a>
+                </li>
+              ) : (
+                <li><Link to="/contatto" className="hover:text-restaurant-accent transition-colors">{t.location}</Link></li>
+              )}
               <li><Link to="/lavora-con-noi" className="hover:text-restaurant-accent transition-colors">{t.work}</Link></li>
               <li><Link to="/contatto" className="hover:text-restaurant-accent transition-colors">{t.contact}</Link></li>
             </ul>
