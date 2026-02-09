@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const NavBar_Admin: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [meta, setMeta] = useState<any>(null);
   const [lang, setLang] = useState<string>(() => localStorage.getItem('lang') || 'it');
   const location = useLocation();
@@ -101,7 +103,86 @@ const NavBar_Admin: React.FC = () => {
           {/* Logout */}
           <button onClick={handleLogout} className="ml-6 px-4 py-2 bg-restaurant-accent text-white rounded-lg font-bold hover:bg-orange-600 transition-all">Logout</button>
         </div>
+        {/* Mobile Toggle */}
+        <button
+          className="lg:hidden text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Apri menu"
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-restaurant-dark z-40 flex flex-col items-center justify-center space-y-8 text-2xl animate-in fade-in zoom-in duration-300">
+          {/* Overlay cliccabile per chiudere */}
+          <button
+            className="absolute top-6 right-6 text-white z-50"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Chiudi menu"
+          >
+            <X size={36} />
+          </button>
+          {/* Overlay trasparente per chiudere cliccando fuori */}
+          <div
+            className="fixed inset-0 z-30"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="relative z-40 flex flex-col items-center justify-center space-y-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white hover:text-restaurant-accent transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+            {/* Dropdown lingua mobile */}
+            <div className="relative">
+              <button
+                className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 text-white px-4 py-2 rounded-lg text-xl font-medium transition-all"
+                onClick={() => setIsLangDropdownOpen((open) => !open)}
+                onBlur={() => setTimeout(() => setIsLangDropdownOpen(false), 150)}
+                tabIndex={0}
+              >
+                <span>{t.flag}</span>
+                <span>{t.langLabel}</span>
+                <span className="ml-2">▼</span>
+              </button>
+              {isLangDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-40 bg-white rounded-xl shadow-xl z-50">
+                  {languageOptions.map(option => (
+                    <button
+                      key={option.code}
+                      onClick={() => {
+                        setIsLangDropdownOpen(false);
+                        setIsMobileMenuOpen(false);
+                        handleLangChange(option.code);
+                      }}
+                      className={`w-full flex items-center px-4 py-2 text-left space-x-2 text-xl font-medium ${option.code === lang ? 'text-restaurant-accent bg-white' : 'text-gray-700 hover:bg-gray-100'}`}
+                    >
+                      <span>{option.flag}</span>
+                      <span>{option.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                handleLogout();
+              }}
+              className="bg-restaurant-accent text-white px-10 py-4 rounded-lg font-semibold"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
