@@ -19,6 +19,7 @@ import AdminMenu from './pages/AdminMenu';
 import AdminBooking from './pages/AdminBooking';
 import AdminWorkWithUs from './pages/AdminWorkWithUs';
 import AdminContact from './pages/AdminContact';
+import { ThemeProvider } from './context/ThemeContext';
 
 export type Language = 'it' | 'en' | 'fr' | 'es' | 'de' | 'zh' | 'ar';
 
@@ -43,7 +44,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <ThemeProvider>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         {/* Show correct navbar by route using useLocation */}
@@ -77,7 +78,7 @@ const App: React.FC = () => {
         <Footer lang={lang} />
         <ReservationModal lang={lang} isOpen={isModalOpen} onClose={closeModal} />
       </div>
-    </>
+    </ThemeProvider>
   );
 };
 
