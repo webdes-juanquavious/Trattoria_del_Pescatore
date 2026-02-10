@@ -1,0 +1,120 @@
+/* themes.css - Palette temi famosi per light/dark mode */
+:root[data-theme="default-light"] {
+  --bg: #f9fafb;
+  --text: #222;
+  --accent: #ff6600;
+  --card: #fff;
+  --card-border: #e5e7eb;
+}
+:root[data-theme="default-dark"] {
+  --bg: #18181b;
+  --text: #fff;
+  --accent: #ff6600;
+  --card: #23232a;
+  --card-border: #23232a;
+}
+:root[data-theme="green-light"] {
+  --bg: #e6f4ea;
+  --text: #1b3a1b;
+  --accent: #6fcf97;
+  --card: #fff;
+  --card-border: #b7c59c;
+}
+:root[data-theme="green-dark"] {
+  --bg: #1b3a1b;
+  --text: #fff;
+  --accent: #27ae60;
+  --card: #223322;
+  --card-border: #7a9d54;
+}
+:root[data-theme="olive-light"] {
+  --bg: #e9f5e1;
+  --text: #2d3a1a;
+  --accent: #b7c59c;
+  --card: #fff;
+  --card-border: #b7c59c;
+}
+:root[data-theme="olive-dark"] {
+  --bg: #2d3a1a;
+  --text: #fff;
+  --accent: #7a9d54;
+  --card: #3a4a2a;
+  --card-border: #7a9d54;
+}
+:root[data-theme="blue-light"] {
+  --bg: #e3f0ff;
+  --text: #1a2636;
+  --accent: #4f8cff;
+  --card: #fff;
+  --card-border: #b6d4fe;
+}
+:root[data-theme="blue-dark"] {
+  --bg: #1a2636;
+  --text: #fff;
+  --accent: #2563eb;
+  --card: #22304a;
+  --card-border: #2563eb;
+}
+:root[data-theme="default-dark"] {
+  --bg: #18181b;
+  --text: #fff;
+  --accent: #ff6600;
+  --card: #18181b;
+  --card-border: #23232a;
+}
+:root[data-theme="green-dark"] {
+  --bg: #1b3a1b;
+  --text: #fff;
+  --accent: #27ae60;
+  --card: #223322;
+  --card-border: #7a9d54;
+}
+:root[data-theme="olive-dark"] {
+  --bg: #2d3a1a;
+  --text: #fff;
+  --accent: #7a9d54;
+  --card: #3a4a2a;
+  --card-border: #7a9d54;
+}
+:root[data-theme="blue-dark"] {
+  --bg: #1a2636;
+  --text: #fff;
+  --accent: #2563eb;
+  --card: #22304a;
+  --card-border: #2563eb;
+}
+:root[data-theme="sea-dark"] {
+  --bg: #1a2233;
+  --text: #fff;
+  --accent: #2563eb;
+  --card: #22304a;
+  --card-border: #2563eb;
+}
+:root[data-theme="sand-dark"] {
+  --bg: #7c5e3c;
+  --text: #fff;
+  --accent: #c97e3f;
+  --card: #a67c52;
+  --card-border: #c97e3f;
+}
+:root[data-theme="purple-dark"] {
+  --bg: #3d2352;
+  --text: #e4d8f3;
+  --accent: #7c3aed;
+  --card: #4b2e5d;
+  --card-border: #7c3aed;
+}
+:root[data-theme="gold-dark"] {
+  --bg: #3b2f1c;
+  --text: #fff;
+  --accent: #bfa100;
+  --card: #5a4321;
+  --card-border: #bfa100;
+}
+:root[data-theme="papal-dark"] {
+  --bg: #3a2e39;
+  --text: #fff;
+  --accent: #a67c52;
+  --card: #4b3a4a;
+  --card-border: #a67c52;
+}
