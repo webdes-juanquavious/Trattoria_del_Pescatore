@@ -53,6 +53,8 @@ const Home: React.FC<HomeProps> = ({ onOpenBooking, lang }) => {
 
   return (
     <div>
+      {/* Margin-top per Navbar sticky */}
+      <div style={{ marginTop: '64px' }}></div>
       <Hero onOpenBooking={onOpenBooking} lang={lang} />
       <DishShowcase lang={lang} />
       <StorySection lang={lang} />
