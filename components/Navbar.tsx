@@ -116,14 +116,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, lang, toggleLanguage }) 
     { name: t.contact, path: '/contatto' },
   ];
 
+  // Calcola padding dinamico per mobile
+  const navPadding = isScrolled ? 'py-2' : 'py-4';
   return (
     <nav
-      className={`sticky-navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${isScrolled
-          ? 'bg-gray-100 dark:bg-restaurant-dark/95 backdrop-blur-sm py-4 shadow-lg'
-          : 'bg-gray-50 dark:bg-restaurant-dark py-6'}
-      `}
-      style={{ WebkitOverflowScrolling: 'touch', touchAction: 'manipulation' }}
+      className={`sticky-navbar fixed top-0 left-0 right-0 w-screen z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-100 dark:bg-restaurant-dark/95 backdrop-blur-sm shadow-lg' : 'bg-gray-50 dark:bg-restaurant-dark'} ${navPadding}`}
+      style={{ WebkitOverflowScrolling: 'touch', touchAction: 'manipulation', maxWidth: '100vw', overflow: 'hidden' }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
         {/* Logo */}
@@ -257,3 +255,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, lang, toggleLanguage }) 
 };
 
 export default Navbar;
+// Margin-top helper per evitare che la Navbar copra il contenuto
+// Da inserire nelle pagine principali (Home, Menu, ecc):
+// <div style={{ marginTop: '64px' }}></div>
